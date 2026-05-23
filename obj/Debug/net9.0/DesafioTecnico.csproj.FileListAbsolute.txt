@@ -12,3 +12,4 @@ D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\refint\Desa
 D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.pdb
 D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.genruntimeconfig.cache
 D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\ref\DesafioTecnico.dll
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.sourcelink.json
