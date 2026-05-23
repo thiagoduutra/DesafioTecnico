@@ -30,7 +30,7 @@ Questao2("b)", 128, "Potências de 2. É multiplicado por 2 a cada número.");
 Questao2("c)", 49, "São quadrados perfeitos N². Próximo: 7² = 49.");
 Questao2("d)", 100, "Quadrados perfeitos pares. Próximo: 10² = 100.");
 Questao2("e)", 13, "Fibonacci: a cada número é a soma dos dois anteriores. 5 + 8 = 13.");
-Questao2("f)", 2,"Verificar Novamente Depois");
+Questao2("f)", 2,"Não soube responder!");
 
 // ============================================================
 // QUESTÃO 3
@@ -55,6 +55,12 @@ Questao3(faturamento);
 Console.WriteLine("\n--- QUESTÃO 4 ---");
 
 Questao4();
+
+// ============================================================
+// QUESTÃO 5
+// ============================================================
+Console.WriteLine("\n--- QUESTÃO 5 ---");
+Questao5();
 
 // ============================================================
 // FUNÇÕES UTILIZADAS:
@@ -193,4 +199,28 @@ static void Questao4()
         Console.WriteLine($"  [{item.CodigoCliente}] {item.RazaoSocial}");
         Console.WriteLine($"      Telefone: {item.Telefone} ({item.TipoTelefone})");
     }
+}
+static void Questao5()
+{
+    const double distanciaTotal = 125.0; 
+    const double velocidadeCarro = 90.0;  
+    const double velocidadeCaminhao = 80.0;  
+    const int numeroPedagios = 3;
+    const double atrasoMinPorPedagio = 5.0;
+
+    double atrasoHoras = (numeroPedagios * atrasoMinPorPedagio) / 60.0;
+
+    double t = (distanciaTotal + velocidadeCarro * atrasoHoras) / (velocidadeCarro + velocidadeCaminhao);
+
+    double distanciaCarro = velocidadeCarro * (t - atrasoHoras);
+    double distanciaCaminhao = velocidadeCaminhao * t;
+
+    Console.WriteLine($"  Tempo até o encontro: {t * 60:F1} minutos");
+    Console.WriteLine($"  Carro percorreu: {distanciaCarro:F2} km de Ribeirão Preto");
+    Console.WriteLine($"  Caminhão percorreu: {distanciaCaminhao:F2} km de Barretos");
+    Console.WriteLine($"  Ponto de encontro: {distanciaCarro:F2} km de Ribeirão Preto");
+    Console.WriteLine();
+    Console.WriteLine("  RESPOSTA:");
+    Console.WriteLine("  Quando dois veículos se cruzam estão no mesmo ponto.");
+    Console.WriteLine($"  Ambos estão a {distanciaCarro:F2} km de Ribeirão Preto.");
 }
