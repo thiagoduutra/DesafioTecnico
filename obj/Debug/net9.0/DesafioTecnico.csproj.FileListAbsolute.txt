@@ -1,0 +1,14 @@
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\bin\Debug\net9.0\DesafioTecnico.exe
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\bin\Debug\net9.0\DesafioTecnico.deps.json
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\bin\Debug\net9.0\DesafioTecnico.runtimeconfig.json
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\bin\Debug\net9.0\DesafioTecnico.dll
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\bin\Debug\net9.0\DesafioTecnico.pdb
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.AssemblyInfoInputs.cache
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.AssemblyInfo.cs
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.csproj.CoreCompileInputs.cache
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.dll
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\refint\DesafioTecnico.dll
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.pdb
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\DesafioTecnico.genruntimeconfig.cache
+D:\Users\Thiago Dutra\DesafioTecnico\DesafioTecnico\obj\Debug\net9.0\ref\DesafioTecnico.dll
