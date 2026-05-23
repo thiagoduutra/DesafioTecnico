@@ -1,4 +1,7 @@
-﻿Console.WriteLine("=== DESAFIO TÉCNICO ===\n");
+﻿using Dapper;
+using Microsoft.Data.Sqlite;
+
+Console.WriteLine("=== DESAFIO TÉCNICO ===\n");
 
 // ============================================================
 // QUESTÃO 1
@@ -47,6 +50,13 @@ double[] faturamento = new double[]
 Questao3(faturamento);
 
 // ============================================================
+// QUESTÃO 4
+// ============================================================
+Console.WriteLine("\n--- QUESTÃO 4 ---");
+
+Questao4();
+
+// ============================================================
 // FUNÇÕES UTILIZADAS:
 // ============================================================
 static void Imprimir(int valor)
@@ -84,4 +94,103 @@ static void Questao3(double[] faturamento)
     Console.WriteLine($"  Maior faturamento: R$ {maior:F2}");
     Console.WriteLine($"  Média anual:       R$ {media:F2}");
     Console.WriteLine($"  Dias acima da média: {diasAcimaMedia}");
+}
+static void Questao4()
+{
+    using var connection = new SqliteConnection("Data Source=desafio.db");
+    connection.Open();
+
+    // -------------------------------------------------------
+    // Criação das tabelas
+    // -------------------------------------------------------
+    connection.Execute(@"
+        CREATE TABLE IF NOT EXISTS Estado (
+            Codigo TEXT NOT NULL PRIMARY KEY,
+            Nome   TEXT NOT NULL
+        )
+    ");
+
+    connection.Execute(@"
+        CREATE TABLE IF NOT EXISTS TiposTelefone (
+            Id        INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            Descricao TEXT    NOT NULL
+        )
+    ");
+
+    connection.Execute(@"
+        CREATE TABLE IF NOT EXISTS Cliente (
+            Id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            RazaoSocial  TEXT    NOT NULL,
+            CNPJ         TEXT    NOT NULL UNIQUE,
+            EstadoCodigo TEXT    NOT NULL,
+            FOREIGN KEY (EstadoCodigo) REFERENCES Estado(Codigo)
+        )
+    ");
+
+    connection.Execute(@"
+        CREATE TABLE IF NOT EXISTS Telefone (
+            Id             INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            ClienteId      INTEGER NOT NULL,
+            TipoTelefoneId INTEGER NOT NULL,
+            Numero         TEXT    NOT NULL,
+            FOREIGN KEY (ClienteId)      REFERENCES Cliente(Id),
+            FOREIGN KEY (TipoTelefoneId) REFERENCES TiposTelefone(Id)
+        )
+    ");
+
+    // -------------------------------------------------------
+    // Insere dados apenas se o banco estiver vazio
+    // -------------------------------------------------------
+    var total = connection.ExecuteScalar<int>("SELECT COUNT(*) FROM Estado");
+    if (total == 0)
+    {
+        connection.Execute(@"
+            INSERT INTO Estado VALUES
+            ('SP', 'São Paulo'),
+            ('RJ', 'Rio de Janeiro'),
+            ('MG', 'Minas Gerais')
+        ");
+
+        connection.Execute(@"
+            INSERT INTO TiposTelefone (Descricao) VALUES
+            ('Comercial'),
+            ('Residencial'),
+            ('Celular')
+        ");
+
+        connection.Execute(@"
+            INSERT INTO Cliente (RazaoSocial, CNPJ, EstadoCodigo) VALUES
+            ('SRConstrucoes', '11111111000101', 'SP'),
+            ('Carrossel S/A', '22222222000102', 'SP'),
+            ('Gama Filho ME', '33333333000103', 'RJ'),
+            ('Macuco Ltda',   '44444444000104', 'SP')
+        ");
+
+        connection.Execute(@"
+            INSERT INTO Telefone (ClienteId, TipoTelefoneId, Numero) VALUES
+            (1, 1, '(11) 3001-1000'),
+            (1, 3, '(11) 99001-0001'),
+            (2, 1, '(11) 3002-2000'),
+            (3, 2, '(21) 3003-3000'),
+            (4, 1, '(11) 3004-4000'),
+            (4, 3, '(11) 99004-0004')
+        ");
+    }
+
+    var resultado = connection.Query(@"
+        SELECT C.Id AS CodigoCliente, C.RazaoSocial, T.Numero AS Telefone, TT.Descricao AS TipoTelefone
+        FROM Cliente C
+        INNER JOIN Estado E  ON E.Codigo = C.EstadoCodigo
+        LEFT  JOIN Telefone T  ON T.ClienteId = C.Id
+        LEFT  JOIN TiposTelefone TT ON TT.Id = T.TipoTelefoneId
+        WHERE E.Codigo = 'SP'
+        ORDER BY C.RazaoSocial
+    ");
+
+    Console.WriteLine("\n  Clientes do estado de SP:\n");
+    foreach (var item in resultado)
+    {
+        Console.WriteLine($"  [{item.CodigoCliente}] {item.RazaoSocial}");
+        Console.WriteLine($"      Telefone: {item.Telefone} ({item.TipoTelefone})");
+    }
 }

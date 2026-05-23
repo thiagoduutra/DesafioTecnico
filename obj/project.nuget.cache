@@ -1,8 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "0rQIG46YAD8=",
+  "dgSpecHash": "YbkItS7SvBY=",
   "success": true,
   "projectFilePath": "D:\\Users\\Thiago Dutra\\DesafioTecnico\\DesafioTecnico\\DesafioTecnico.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\microsoft.data.sqlite\\10.0.8\\microsoft.data.sqlite.10.0.8.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\microsoft.data.sqlite.core\\10.0.8\\microsoft.data.sqlite.core.10.0.8.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.1.11\\sqlitepclraw.bundle_e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\sqlitepclraw.core\\2.1.11\\sqlitepclraw.core.2.1.11.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.11\\sqlitepclraw.lib.e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.11\\sqlitepclraw.provider.e_sqlite3.2.1.11.nupkg.sha512",
+    "C:\\Users\\Thiago Dutra\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
